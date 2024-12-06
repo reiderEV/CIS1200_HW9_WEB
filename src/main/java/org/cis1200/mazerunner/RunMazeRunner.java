@@ -2,6 +2,7 @@ package org.cis1200.mazerunner;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
@@ -20,10 +21,10 @@ public class RunMazeRunner implements Runnable {
 
             StatusPanel statusPanel = new StatusPanel(game, mazePanel, frame);
             frame.add(statusPanel, BorderLayout.SOUTH);
+            frame.addKeyListener(new KeyAdapter() {
 
-            frame.addKeyListener(new java.awt.event.KeyAdapter() {
                 @Override
-                public void keyPressed(java.awt.event.KeyEvent e) {
+                public void keyPressed(KeyEvent e) {
                     String direction = switch (e.getKeyCode()) {
                         case KeyEvent.VK_UP -> "UP";
                         case KeyEvent.VK_DOWN -> "DOWN";
@@ -47,6 +48,8 @@ public class RunMazeRunner implements Runnable {
 
             frame.setSize(600, 600);
             frame.setVisible(true);
+            frame.setFocusable(true);
+            frame.requestFocusInWindow();
         } catch (IOException e) {
             System.err.println("Failed to load maze: " + e.getMessage());
         }
