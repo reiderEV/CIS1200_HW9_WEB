@@ -9,11 +9,15 @@ public class GameLogic {
     private boolean gameOver;
     private boolean gameWon;
     private String filepath;
+    private boolean solvable;
 
     public GameLogic(String file) throws IOException {
         maze = new Maze();
         loadFromFile(file);
         filepath = file;
+        SolvabilityChecker checker = new SolvabilityChecker(maze);
+        boolean solvable = checker.isSolvable(playerX, playerY);
+        System.out.println("Maze solvable?:" + solvable);
     }
 
     private void findPlayerPosition() {
@@ -32,7 +36,7 @@ public class GameLogic {
     public boolean movePlayer(String direction) {
         int newX = playerX;
         int newY = playerY;
-        System.out.println("TEST_here!");
+        System.out.println("Player moving!");
         switch (direction) {
             case "UP" -> newX--;
             case "DOWN" -> newX++;
