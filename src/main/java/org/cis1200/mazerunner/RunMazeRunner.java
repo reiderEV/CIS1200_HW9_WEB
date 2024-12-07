@@ -35,12 +35,22 @@ public class RunMazeRunner implements Runnable {
 
                     if (direction != null && !game.isGameOver() && game.movePlayer(direction)) {
                         mazePanel.repaint();
-                        if (game.isGameOver()) {
-                            if (game.isGameWon()) {
-                                statusPanel.updateStatus("You Win!");
-                            } else {
-                                statusPanel.updateStatus("Game Over!");
-                            }
+                        System.out.println(game.isGameOver());
+//                        if (game.isGameOver()) {
+//                            System.out.println("HERE!!");
+//                            if (game.isGameWon()) {
+//                                statusPanel.updateStatus("You Win!");
+//                            } else {
+//                                statusPanel.updateStatus("Game Over!");
+//                            }
+//                        }
+                    }
+                    if (game.isGameOver()) {
+                        System.out.println("HERE!!");
+                        if (game.isGameWon()) {
+                            statusPanel.updateStatus("You Win!");
+                        } else {
+                            statusPanel.updateStatus("Game Over!");
                         }
                     }
                 }

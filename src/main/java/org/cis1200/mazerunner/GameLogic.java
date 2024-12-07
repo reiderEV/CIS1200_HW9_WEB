@@ -8,10 +8,12 @@ public class GameLogic {
     private int playerY;
     private boolean gameOver;
     private boolean gameWon;
+    private String filepath;
 
     public GameLogic(String file) throws IOException {
         maze = new Maze();
         loadFromFile(file);
+        filepath = file;
     }
 
     private void findPlayerPosition() {
@@ -30,7 +32,7 @@ public class GameLogic {
     public boolean movePlayer(String direction) {
         int newX = playerX;
         int newY = playerY;
-
+        System.out.println("TEST_here!");
         switch (direction) {
             case "UP" -> newX--;
             case "DOWN" -> newX++;
@@ -115,6 +117,26 @@ public class GameLogic {
         findPlayerPosition();
         gameOver = false;
         gameWon = false;
+        filepath = filePath;
+    }
+
+    public void resetFromFile(String filePath) throws IOException {
+        maze.loadFromFile(filePath);
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+            String[] dimensions = reader.readLine().split(" ");
+            int rows = Integer.parseInt(dimensions[0]);
+            int cols = Integer.parseInt(dimensions[1]);
+
+            maze = new Maze(rows, cols);
+
+            for (int i = 0; i < rows; i++) {
+                maze.setRow(i, reader.readLine().toCharArray());
+            }
+        }
+        findPlayerPosition();
+        gameOver = false;
+        gameWon = false;
+        filepath = filePath;
     }
 
     public Maze getMaze() {
@@ -127,5 +149,9 @@ public class GameLogic {
 
     public boolean isGameWon() {
         return gameWon;
+    }
+
+    public String getFilepath() {
+        return filepath;
     }
 }
