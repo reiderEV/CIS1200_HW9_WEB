@@ -16,6 +16,11 @@ public class StatusPanel extends JPanel {
         statusLabel = new JLabel("Move using arrow keys.");
         add(statusLabel);
 
+        if (!game.isSolvable()) {
+            JOptionPane.showMessageDialog(frame, "This game file isn't solvable, proceed at your own risk!",
+                    "Game File Solvability", JOptionPane.INFORMATION_MESSAGE);
+        }
+
         saveButton = new JButton("Save Game");
         saveButton.addActionListener(e -> {
             try {
@@ -23,6 +28,7 @@ public class StatusPanel extends JPanel {
                 frame.requestFocus();
                 JOptionPane.showMessageDialog(frame, "Game saved successfully!",
                         "Save Game", JOptionPane.INFORMATION_MESSAGE);
+                System.out.println("Game saved!");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(frame, "Failed to save game: " + ex.getMessage(),
                         "Error", JOptionPane.ERROR_MESSAGE);
@@ -37,6 +43,7 @@ public class StatusPanel extends JPanel {
                 mazePanel.repaint();
                 statusLabel.setText("Game loaded!");
                 frame.requestFocus();
+                System.out.println("Game loaded!");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(frame, "Failed to load game: " + ex.getMessage(),
                         "Error", JOptionPane.ERROR_MESSAGE);
@@ -51,6 +58,7 @@ public class StatusPanel extends JPanel {
                 mazePanel.repaint();
                 statusLabel.setText("Game reset!");
                 frame.requestFocus();
+                System.out.println("Game reset!");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(frame, "Failed to reset game: " + ex.getMessage(),
                         "Error", JOptionPane.ERROR_MESSAGE);

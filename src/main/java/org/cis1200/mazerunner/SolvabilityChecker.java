@@ -33,11 +33,9 @@ public class SolvabilityChecker {
             }
         }
 
-        // Backtrack: unmark the cell if needed for another path (not necessary here)
-        return false; // No path from this cell
+        return false; //no path from this cell
     }
 
-    // Helper to check if a cell is valid to move into
     private boolean isValidCell(int x, int y) {
         return x >= 0 && x < maze.getRows()
                 && y >= 0 && y < maze.getCols()

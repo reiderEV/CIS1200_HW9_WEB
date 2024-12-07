@@ -10,7 +10,7 @@ public class RunMazeRunner implements Runnable {
     @Override
     public void run() {
         try {
-            GameLogic game = new GameLogic("files/mazes/easy10_10.txt");
+            GameLogic game = new GameLogic("files/mazes/hard20_30.txt");
 
             JFrame frame = new JFrame("Maze Runner");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,15 +35,6 @@ public class RunMazeRunner implements Runnable {
 
                     if (direction != null && !game.isGameOver() && game.movePlayer(direction)) {
                         mazePanel.repaint();
-                        System.out.println(game.isGameOver());
-//                        if (game.isGameOver()) {
-//                            System.out.println("HERE!!");
-//                            if (game.isGameWon()) {
-//                                statusPanel.updateStatus("You Win!");
-//                            } else {
-//                                statusPanel.updateStatus("Game Over!");
-//                            }
-//                        }
                     }
                     if (game.isGameOver()) {
                         System.out.println("Game is over!");

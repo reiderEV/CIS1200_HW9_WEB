@@ -9,15 +9,19 @@ public class GameLogic {
     private boolean gameOver;
     private boolean gameWon;
     private String filepath;
-    private boolean solvable;
 
     public GameLogic(String file) throws IOException {
         maze = new Maze();
         loadFromFile(file);
         filepath = file;
         SolvabilityChecker checker = new SolvabilityChecker(maze);
-        boolean solvable = checker.isSolvable(playerX, playerY);
-        System.out.println("Maze solvable?:" + solvable);
+        System.out.println("Maze solvable?: " + checker.isSolvable(playerX, playerY));
+    }
+
+    //getter to allow solvability access from StatusPanel, kinda an ugly workaround atm
+    public boolean isSolvable() {
+        SolvabilityChecker checker = new SolvabilityChecker(maze);
+        return checker.isSolvable(playerX, playerY);
     }
 
     private void findPlayerPosition() {
@@ -36,7 +40,6 @@ public class GameLogic {
     public boolean movePlayer(String direction) {
         int newX = playerX;
         int newY = playerY;
-        System.out.println("Player moving!");
         switch (direction) {
             case "UP" -> newX--;
             case "DOWN" -> newX++;
@@ -69,6 +72,7 @@ public class GameLogic {
             gameOver = true;
             gameWon = true;
         } else {
+            System.out.println("Player moving " + direction + "!");
             maze.setCell(playerX, playerY, '.');
             playerX = newX;
             playerY = newY;
@@ -79,7 +83,8 @@ public class GameLogic {
     }
 
     public void saveGame(String saveFileName) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("files/mazes/savegames/" + saveFileName))) {
+        try (BufferedWriter writer = new BufferedWriter(new
+                FileWriter("files/mazes/savegames/" + saveFileName))) {
             writer.write(maze.getRows() + " " + maze.getCols());
             writer.newLine();
             writer.write("P=" + playerX + "," + playerY);
@@ -96,7 +101,8 @@ public class GameLogic {
     }
 
     public void loadSaveFile(String saveFileName) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader("files/mazes/savegames/" + saveFileName))) {
+        try (BufferedReader reader = new BufferedReader(new
+                FileReader("files/mazes/savegames/" + saveFileName))) {
             String[] dimensions = reader.readLine().split(" ");
             int rows = Integer.parseInt(dimensions[0]);
             int cols = Integer.parseInt(dimensions[1]);
