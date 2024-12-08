@@ -40,6 +40,7 @@ public class SolvabilityChecker {
         return x >= 0 && x < maze.getRows()
                 && y >= 0 && y < maze.getCols()
                 && !visited[x][y]
-                && maze.getCell(x, y) != '#'; // '#' is a wall
+                && maze.getCell(x, y) != '#'
+                && maze.getCell(x, y) != 'T'; // '#' is a wall
     }
 }
