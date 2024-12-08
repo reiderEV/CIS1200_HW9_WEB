@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="9.2.1">
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\main\java\org\cis1200\Game.java">
+</file>
 <file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\main\java\org\cis1200\mazerunner\GameLogic.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\main\java\org\cis1200\mazerunner\Maze.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\main\java\org\cis1200\mazerunner\MazePanel.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\main\java\org\cis1200\mazerunner\RunMazeRunner.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\main\java\org\cis1200\mazerunner\SolvabilityChecker.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\main\java\org\cis1200\mazerunner\StatusPanel.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\test\java\org\cis1200\CompilationTest.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\test\java\org\cis1200\mazerunner\TestGameLogic.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\test\java\org\cis1200\mazerunner\TestMaze.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\test\java\org\cis1200\mazerunner\TestRunMazeRunner.java">
+</file>
+<file name="C:\Users\reide\OneDrive\Desktop\Penn\CIS 1200\hw09_local\CIS1200_HW9_WEB\src\test\java\org\cis1200\mazerunner\TestSolvabilityChecker.java">
 </file>
 </checkstyle>

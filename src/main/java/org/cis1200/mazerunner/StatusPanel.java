@@ -17,8 +17,10 @@ public class StatusPanel extends JPanel {
         add(statusLabel);
 
         if (!game.isSolvable()) {
-            JOptionPane.showMessageDialog(frame, "This game file isn't solvable, proceed at your own risk!",
-                    "Game File Solvability", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(
+                    frame, "This game file isn't solvable, proceed at your own risk!",
+                    "Game File Solvability", JOptionPane.INFORMATION_MESSAGE
+            );
         }
 
         saveButton = new JButton("Save Game");
@@ -26,12 +28,16 @@ public class StatusPanel extends JPanel {
             try {
                 game.saveGame("save1.txt");
                 frame.requestFocus();
-                JOptionPane.showMessageDialog(frame, "Game saved successfully!",
-                        "Save Game", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        frame, "Game saved successfully!",
+                        "Save Game", JOptionPane.INFORMATION_MESSAGE
+                );
                 System.out.println("Game saved!");
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(frame, "Failed to save game: " + ex.getMessage(),
-                        "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        frame, "Failed to save game: " + ex.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE
+                );
             }
         });
         add(saveButton);
@@ -45,8 +51,10 @@ public class StatusPanel extends JPanel {
                 frame.requestFocus();
                 System.out.println("Game loaded!");
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(frame, "Failed to load game: " + ex.getMessage(),
-                        "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        frame, "Failed to load game: " + ex.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE
+                );
             }
         });
         add(loadButton);
@@ -54,14 +62,16 @@ public class StatusPanel extends JPanel {
         resetButton = new JButton("Reset Game");
         resetButton.addActionListener(e -> {
             try {
-                game.resetFromFile(game.getFilepath()); //add here
+                game.resetFromFile(game.getFilepath()); // add here
                 mazePanel.repaint();
                 statusLabel.setText("Game reset!");
                 frame.requestFocus();
                 System.out.println("Game reset!");
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(frame, "Failed to reset game: " + ex.getMessage(),
-                        "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(
+                        frame, "Failed to reset game: " + ex.getMessage(),
+                        "Error", JOptionPane.ERROR_MESSAGE
+                );
             }
         });
         add(resetButton);

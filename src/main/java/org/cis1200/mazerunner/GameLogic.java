@@ -18,7 +18,8 @@ public class GameLogic {
         System.out.println("Maze solvable?: " + checker.isSolvable(playerX, playerY));
     }
 
-    //getter to allow solvability access from StatusPanel, kinda an ugly workaround atm
+    // getter to allow solvability access from StatusPanel, kinda an ugly workaround
+    // atm
     public boolean isSolvable() {
         SolvabilityChecker checker = new SolvabilityChecker(maze);
         return checker.isSolvable(playerX, playerY);
@@ -83,8 +84,9 @@ public class GameLogic {
     }
 
     public void saveGame(String saveFileName) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new
-                FileWriter("files/mazes/savegames/" + saveFileName))) {
+        try (BufferedWriter writer = new BufferedWriter(
+                new FileWriter("files/mazes/savegames/" + saveFileName)
+        )) {
             writer.write(maze.getRows() + " " + maze.getCols());
             writer.newLine();
             writer.write("P=" + playerX + "," + playerY);
@@ -101,8 +103,9 @@ public class GameLogic {
     }
 
     public void loadSaveFile(String saveFileName) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new
-                FileReader("files/mazes/savegames/" + saveFileName))) {
+        try (BufferedReader reader = new BufferedReader(
+                new FileReader("files/mazes/savegames/" + saveFileName)
+        )) {
             String[] dimensions = reader.readLine().split(" ");
             int rows = Integer.parseInt(dimensions[0]);
             int cols = Integer.parseInt(dimensions[1]);

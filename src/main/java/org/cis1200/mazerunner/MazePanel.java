@@ -19,7 +19,7 @@ public class MazePanel extends JPanel {
         int rows = game.getMaze().getRows();
         int cols = game.getMaze().getCols();
 
-        //realtime cell resizing
+        // realtime cell resizing
         int cellWidth = panelWidth / cols;
         int cellHeight = panelHeight / rows;
         int cellSize = Math.min(cellWidth, cellHeight);
@@ -31,34 +31,34 @@ public class MazePanel extends JPanel {
                 char cell = grid[row][col];
 
                 if (cell == '#') {
-                    g.setColor(Color.BLACK); //WALL
+                    g.setColor(Color.BLACK); // WALL
                 } else if (cell == '.') {
-                    g.setColor(Color.WHITE); //OPEN SPACE
+                    g.setColor(Color.WHITE); // OPEN SPACE
                 } else if (cell == 'P') {
-                    g.setColor(Color.BLUE); //PLAYER (ADD IMAGE OVERLAY LATER)
+                    g.setColor(Color.BLUE); // PLAYER (ADD IMAGE OVERLAY LATER)
                 } else if (cell == 'T') {
-                    g.setColor(Color.RED); //TRAPDOOR
+                    g.setColor(Color.RED); // TRAPDOOR
                 } else if (cell == 'E') {
-                    g.setColor(Color.GREEN); //EXIT
+                    g.setColor(Color.GREEN); // EXIT
                 }
 
                 int x = col * cellSize;
                 int y = row * cellSize;
                 g.fillRect(x, y, cellSize, cellSize);
 
-//                g.setColor(Color.GRAY);
-//                g.drawRect(x, y, cellSize, cellSize); //grid lines?
+                // g.setColor(Color.GRAY);
+                // g.drawRect(x, y, cellSize, cellSize); //grid lines?
             }
         }
-        //Draw grid lines
+        // Draw grid lines
         g.setColor(Color.GRAY);
         for (int row = 0; row <= rows; row++) {
             int y = row * cellSize;
-            g.drawLine(0, y, cols * cellSize, y); //Horizontal line
+            g.drawLine(0, y, cols * cellSize, y); // Horizontal line
         }
         for (int col = 0; col <= cols; col++) {
             int x = col * cellSize;
-            g.drawLine(x, 0, x, rows * cellSize); //Vertical line
+            g.drawLine(x, 0, x, rows * cellSize); // Vertical line
         }
     }
 

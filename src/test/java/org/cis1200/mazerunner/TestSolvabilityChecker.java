@@ -41,7 +41,9 @@ public class TestSolvabilityChecker {
     @Test
     public void testMazeWithMultipleExits() {
         solvabilityChecker = new SolvabilityChecker(multipleExitsMaze);
-        assertTrue(solvabilityChecker.isSolvable(1, 1), "Maze with multiple exits should return true.");
+        assertTrue(
+                solvabilityChecker.isSolvable(1, 1), "Maze with multiple exits should return true."
+        );
     }
 
     @Test
@@ -56,7 +58,10 @@ public class TestSolvabilityChecker {
         surroundedMaze.loadFromFile("files/mazes/surroundedmaze.txt");
 
         solvabilityChecker = new SolvabilityChecker(surroundedMaze);
-        assertFalse(solvabilityChecker.isSolvable(1, 1), "Maze with player surrounded by walls should return false.");
+        assertFalse(
+                solvabilityChecker.isSolvable(1, 1),
+                "Maze with player surrounded by walls should return false."
+        );
     }
 
     @Test

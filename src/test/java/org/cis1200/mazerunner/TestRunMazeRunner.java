@@ -45,7 +45,9 @@ public class TestRunMazeRunner {
 
                 // Simulate pressing the RIGHT key
                 KeyEvent keyEvent = new KeyEvent(
-                        frame, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_RIGHT, 'D');
+                        frame, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0,
+                        KeyEvent.VK_RIGHT, 'D'
+                );
                 mazePanel.dispatchEvent(keyEvent);
 
                 // Assert player moved

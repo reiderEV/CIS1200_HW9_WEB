@@ -46,7 +46,7 @@ public class TestMaze {
 
     @Test
     public void testSetRow() {
-        char[] rowData = {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#'};
+        char[] rowData = { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#' };
         maze = new Maze(10, 10);
         maze.setRow(0, rowData);
         assertArrayEquals(rowData, maze.getGrid()[0]);

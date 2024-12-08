@@ -7,7 +7,8 @@ public class Maze {
     private int rows;
     private int cols;
 
-    public Maze() {}
+    public Maze() {
+    }
 
     public Maze(int rows, int cols) {
         this.rows = rows;

@@ -15,7 +15,7 @@ public class SolvabilityChecker {
     }
 
     private boolean dfs(int x, int y) {
-        if (!isValidCell(x, y)) { //if out of bounds, wall, or already visited, return false
+        if (!isValidCell(x, y)) { // if out of bounds, wall, or already visited, return false
             return false;
         }
 
@@ -23,17 +23,17 @@ public class SolvabilityChecker {
             return true;
         }
 
-        visited[x][y] = true; //mark current as visited
+        visited[x][y] = true; // mark current as visited
 
         for (int[] dir : new int[][] { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } }) {
             int newX = x + dir[0];
             int newY = y + dir[1];
             if (dfs(newX, newY)) {
-                return true; //found a path to the exit
+                return true; // found a path to the exit
             }
         }
 
-        return false; //no path from this cell
+        return false; // no path from this cell
     }
 
     private boolean isValidCell(int x, int y) {

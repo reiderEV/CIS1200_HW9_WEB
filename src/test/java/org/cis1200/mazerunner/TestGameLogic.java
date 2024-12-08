@@ -11,7 +11,7 @@ public class TestGameLogic {
 
     @BeforeEach
     public void setUp() throws IOException {
-        game = new GameLogic("files/mazes/testmaze.txt"); //load a sample test maze
+        game = new GameLogic("files/mazes/testmaze.txt"); // load a sample test maze
     }
 
     @Test
@@ -31,15 +31,17 @@ public class TestGameLogic {
 
     @Test
     public void testWallCollision() {
-        //wall above player should prevent movement in that direction
+        // wall above player should prevent movement in that direction
         assertFalse(game.movePlayer("UP"), "Player should not move into a wall");
-        assertEquals('P', game.getMaze().getCell(1, 1), "Player should remain in original position");
+        assertEquals(
+                'P', game.getMaze().getCell(1, 1), "Player should remain in original position"
+        );
     }
 
     @Test
     public void testTrapdoor() {
         game.movePlayer("DOWN");
-        game.movePlayer("DOWN"); //move to 3,1
+        game.movePlayer("DOWN"); // move to 3,1
         assertTrue(game.isGameOver(), "Game should be over when stepping on a trapdoor");
         assertFalse(game.isGameWon(), "Game should not be won when stepping on a trapdoor");
     }
@@ -75,11 +77,11 @@ public class TestGameLogic {
 
     @Test
     public void testSolvabilityCheck() throws IOException {
-        //test solvable maze
+        // test solvable maze
         GameLogic solvableGame = new GameLogic("files/mazes/easy10_10.txt");
         assertTrue(solvableGame.isSolvable(), "Solvable maze should return true");
 
-        //test unsolvable maze
+        // test unsolvable maze
         GameLogic unsolvableGame = new GameLogic("files/mazes/crazy35_100.txt");
         assertFalse(unsolvableGame.isSolvable(), "Unsolvable maze should return false");
     }
