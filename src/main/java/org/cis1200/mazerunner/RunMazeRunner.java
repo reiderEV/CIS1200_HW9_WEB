@@ -10,7 +10,7 @@ public class RunMazeRunner implements Runnable {
     @Override
     public void run() {
         try {
-            GameLogic game = new GameLogic("files/mazes/hard20_30.txt");
+            GameLogic game = new GameLogic("files/mazes/crazy35_100.txt");
 
             JFrame frame = new JFrame("Maze Runner");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
